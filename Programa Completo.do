@@ -715,11 +715,11 @@ destring P4_1A P4_2A P4_3A P4_4A P4_5A P4_6A P4_1B P4_2B P4_3B P4_4B P4_5B P4_6B
  drop _merge
  merge m:m cve_ent cve_mun using "Poblacion/ZM_2015.dta"
  drop _merge
- merge m:m cve_ent cve_mun using "Educacion/ESCOLARIDAD_10_20.dta"
+ merge m:m cve_ent cve_mun using "Educacion/ESCOLARIDAD_13_23.dta"
  drop _merge
  merge m:m year using "PIB/IPC.dta"
  
- //Se usarán cifras 2022 para 2023 debido a la falta de siponibilidad de información financiera para 2023
+ // En los casos pertinentes se usarán cifras de 2022 para 2023 debido a la falta de siponibilidad de información financiera para 2023
  drop if clvmun == "" 
  sort clvmun year 
  
@@ -729,7 +729,7 @@ destring P4_1A P4_2A P4_3A P4_4A P4_5A P4_6A P4_1B P4_2B P4_3B P4_4B P4_5B P4_6B
  by clvmun: replace Participaciones_federales = Participaciones_federales[_n-1] if missing(Participaciones_federales) & year >= 2022
  by clvmun: replace Aportaciones = Aportaciones[_n-1] if missing(Aportaciones) & year >= 2022
  
- drop if (cve_ent == "09") // Se eliminan los datos 2022 y CDMX debido a diferencias en la normatividad
+ drop if (cve_ent == "09") // Se eliminan los datos de CDMX debido a diferencias en la normatividad
  
  
  duplicates list cve_ent cve_mun year
