@@ -684,15 +684,7 @@ destring P4_1A P4_2A P4_3A P4_4A P4_5A P4_6A P4_1B P4_2B P4_3B P4_4B P4_5B P4_6B
  save "Educacion/ESCOLARIDAD_13_23.dta", replace
  
  */
- /*
- ////// Sección zonas metropolitanas ///////////
  
- import delimited "Poblacion/ZM_2015.csv", clear
- tostring cve_ent, format("%02.0f") replace 
- tostring cve_mun, format("%03.0f") replace 
- tostring clvmun, format("%05.0f") replace 
- save "Poblacion/ZM_2015.dta", replace
-
  */ 
  
  /*//// Deflactor ///////////////7
